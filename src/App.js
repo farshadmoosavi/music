@@ -11,7 +11,7 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);  // we should pass this state into the player to find out playing or not
   return (
     <div className="App">
-      <h1>Music player</h1>
+      {/* <h1>Music player</h1> */}
       <Song currentSong={currentSong} />   {/* pass the props into song.js */}
       <Player currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>  {/* pass the props into player.js */}
     </div>
