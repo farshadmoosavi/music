@@ -34,15 +34,21 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
         const hours = Math.floor(num / 3600);
         const minutes = Math.floor((num % 3600) / 60);
         const seconds = num % 60;
-      
+
         return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-      }
+    }
+
+    const dragHandler = (e) => {
+        audioRef.current.currentTime = e.target.value;
+        setSongInfo({...songInfo, currentTime: e.target.value})
+    }
 
     return (
         <div className="player">
             <div className="time-control">
                 <p>Start Time {convertToTime(parseInt(songInfo.currentTime))}</p>
-                <input type="range" />
+                {/* This is an controlled <input> because it depends on a state named songInfo: */}
+                <input type="range" onChange={dragHandler} min={0} max={songInfo.duration} value={songInfo.currentTime} />
                 <p>End Time {convertToTime(parseInt(songInfo.duration))}</p>
             </div>
             <div className="play-control"> {/* control buttons */}
