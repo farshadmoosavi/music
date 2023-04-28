@@ -39,5 +39,55 @@ export default function musicData() {
             id: uuidv4(),
             active: true
         }
+        ,
+        {
+            name: "Kokon",
+            cover: "https://chillhop.com/wp-content/uploads/2022/05/d8344de22563af8eaec8f544c14711592eabef26-1024x1024.jpg",
+            artist: " Guillaume Muschalle",
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=28895",
+            color: ["FFFEC6", "534D4F"],
+            id: uuidv4(),
+            active: true
+        }
+        ,
+        {
+            name: "Kokon",
+            cover: "https://chillhop.com/wp-content/uploads/2022/05/d8344de22563af8eaec8f544c14711592eabef26-1024x1024.jpg",
+            artist: " Guillaume Muschalle",
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=28895",
+            color: ["FFFEC6", "534D4F"],
+            id: uuidv4(),
+            active: true
+        }
+        ,
+        {
+            name: "Kokon",
+            cover: "https://chillhop.com/wp-content/uploads/2022/05/d8344de22563af8eaec8f544c14711592eabef26-1024x1024.jpg",
+            artist: " Guillaume Muschalle",
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=28895",
+            color: ["FFFEC6", "534D4F"],
+            id: uuidv4(),
+            active: true
+        }
+        ,
+        {
+            name: "Kokon",
+            cover: "https://chillhop.com/wp-content/uploads/2022/05/d8344de22563af8eaec8f544c14711592eabef26-1024x1024.jpg",
+            artist: " Guillaume Muschalle",
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=28895",
+            color: ["FFFEC6", "534D4F"],
+            id: uuidv4(),
+            active: true
+        }
+        ,
+        {
+            name: "Kokon",
+            cover: "https://chillhop.com/wp-content/uploads/2022/05/d8344de22563af8eaec8f544c14711592eabef26-1024x1024.jpg",
+            artist: " Guillaume Muschalle",
+            audio: "https://mp3.chillhop.com/serve.php/?mp3=28895",
+            color: ["FFFEC6", "534D4F"],
+            id: uuidv4(),
+            active: true
+        }
     ]
 }

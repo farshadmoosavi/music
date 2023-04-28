@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Song from "./components/Song";
 import Player from "./components/Player";
 import data from "./data"
+import SongList from "./components/SongList";
 
 function App() {
   const [songs, setSongs] = useState(data());  //songs list
@@ -14,6 +15,8 @@ function App() {
       {/* <h1>Music player</h1> */}
       <Song currentSong={currentSong} />   {/* pass the props into song.js */}
       <Player currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>  {/* pass the props into player.js */}
+      <SongList songs={songs}/>
+
     </div>
   );
 }
