@@ -13,8 +13,7 @@ function App() {
 
   return (
     <div className="App">
-
-      <SongContext.Provider value={{ songs, setCurrentSong, setSongs }}>  {/* Notice: double brace is necessary here for passing a setState */}
+      <SongContext.Provider value={{ songs, setCurrentSong, setSongs }}>  {/* Notice: double brace is necessary here for passing setStates */}
         <Song currentSong={currentSong} />   {/* pass the props into song.js */}
         <Player currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />  {/* pass the props into player.js */}
         <SongList songs={songs} />

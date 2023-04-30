@@ -25,7 +25,8 @@ const SongListItem = ({ song }) => {
         setSongs(newSong);
     }
     return (
-        <div onClick={clickSong} className={`song-item ${song.active ? "selected" : ""}`}>
+
+        <div onClick={clickSong} className={`song-item ${song.active ? "selected" : ""}`}>  {/* adding a conditional className for CSS */}
             <img src={song.cover}></img>
             <div className="song-description">
                 <h3>{song.name}</h3>
