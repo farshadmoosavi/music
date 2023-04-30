@@ -19,7 +19,7 @@ export default function musicData() {
             audio: "https://mp3.chillhop.com/serve.php/?mp3=49369",
             color: ["CCFBFB", "D4C65C"],
             id: uuidv4(),
-            active: true
+            active: false
         },
         {
             name: "Blessed",
@@ -28,7 +28,7 @@ export default function musicData() {
             audio: "https://mp3.chillhop.com/serve.php/?mp3=32860",
             color: ["60B7DF", "EE81B3"],
             id: uuidv4(),
-            active: true
+            active: false
         },
         {
             name: "Kokon",
@@ -37,7 +37,7 @@ export default function musicData() {
             audio: "https://mp3.chillhop.com/serve.php/?mp3=28895",
             color: ["FFFEC6", "534D4F"],
             id: uuidv4(),
-            active: true
+            active: false
         }
         ,
         {
@@ -47,7 +47,7 @@ export default function musicData() {
             audio: "https://mp3.chillhop.com/serve.php/?mp3=28895",
             color: ["FFFEC6", "534D4F"],
             id: uuidv4(),
-            active: true
+            active: false
         }
         ,
         {
@@ -57,7 +57,7 @@ export default function musicData() {
             audio: "https://mp3.chillhop.com/serve.php/?mp3=28895",
             color: ["FFFEC6", "534D4F"],
             id: uuidv4(),
-            active: true
+            active: false
         }
         ,
         {
@@ -67,7 +67,7 @@ export default function musicData() {
             audio: "https://mp3.chillhop.com/serve.php/?mp3=28895",
             color: ["FFFEC6", "534D4F"],
             id: uuidv4(),
-            active: true
+            active: false
         }
         ,
         {
@@ -77,7 +77,7 @@ export default function musicData() {
             audio: "https://mp3.chillhop.com/serve.php/?mp3=28895",
             color: ["FFFEC6", "534D4F"],
             id: uuidv4(),
-            active: true
+            active: false
         }
         ,
         {
@@ -87,7 +87,7 @@ export default function musicData() {
             audio: "https://mp3.chillhop.com/serve.php/?mp3=28895",
             color: ["FFFEC6", "534D4F"],
             id: uuidv4(),
-            active: true
+            active: false
         }
     ]
 }
