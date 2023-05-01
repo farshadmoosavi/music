@@ -16,6 +16,7 @@
         font-family: 'Anton', sans-serif;
         padding: 1vw;
     }
+    transition: all 1s linear;
 }
 
 .song-list-items{
@@ -72,4 +73,8 @@
 
 .selected{
     background: rgb(168, 168, 168)
+}
+
+.displayList{
+    transform: translateX(-20vw);
 }

@@ -48,7 +48,8 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
             <div className="time-control">
                 <p>Start Time {convertToTime(parseInt(songInfo.currentTime))}</p>
                 {/* This is an controlled <input> because it depends on a state named songInfo: */}
-                <input type="range" onChange={dragHandler} min={0} max={songInfo.duration} value={songInfo.currentTime} />
+                {/* in maximum range we have to put (or) operator with max.duration because when the song has not been loaded it shows 0 and doesn't display error */}
+                <input type="range" onChange={dragHandler} min={0} max={songInfo.duration || 0} value={songInfo.currentTime} />
                 <p>End Time {convertToTime(parseInt(songInfo.duration))}</p>
             </div>
             <div className="play-control"> {/* control buttons */}

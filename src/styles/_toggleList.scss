@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Lexend:wght@300&display=swap');
+nav {
+  min-height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  button {
+    background: transparent;
+    cursor: pointer;
+    border: 2px solid rgb(65, 65, 65);
+    padding: 0.5rem;
+    transition: all 0.3 ease; // all of its specifications changes in 0.3s
+    &:hover {
+      background: rgb(65, 65, 65);
+      color: white;
+      border: 2px solid rgb(240, 240, 240);
+    }
+  }
+}
+
+#button-toggle{
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+#wave-toggle{
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    color: red
+}
