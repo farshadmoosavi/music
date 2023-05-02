@@ -1,10 +1,30 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight, faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
-import { icon } from "@fortawesome/fontawesome-svg-core";
 
 
-const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs }) => {
+const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, setSongs }) => {
+
+    // this useEffect is written for changing the active field of every song in data.js so as to change the background color of song in songList 
+    //when we push the skip buttons
+    useEffect(() => {
+        const newSong = songs.map(item => {
+            if (item.id === currentSong.id) {
+                return {
+                    ...item,
+                    active: true
+                }
+            }
+            else {
+                return {
+                    ...item,
+                    active: false
+                }
+            }
+        })
+        setSongs(newSong);
+    },[currentSong])
+
 
     const audioRef = useRef(null);
 
@@ -49,13 +69,14 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs })
         if (dir === "forward") {
             if (currentIndex == songs.length - 1) {
                 setCurrentSong(songs[0])
+
             }
             else {
                 setCurrentSong(songs[currentIndex + 1])
             }
         }
         if (dir === "back") {
-            if (currentIndex == 0) {
+            if (currentIndex === 0) {
                 setCurrentSong(songs[songs.length - 1])
             }
             else {

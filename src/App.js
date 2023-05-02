@@ -18,7 +18,7 @@ function App() {
       <ToggleList displayListSong={displayListSong} setDisplayListSong={setDisplayListSong} />
       <SongContext.Provider value={{ songs, setCurrentSong, setSongs }}>  {/* Notice: double brace is necessary here for passing setStates */}
         <Song currentSong={currentSong} />   {/* pass the props into song.js */}
-        <Player currentSong={currentSong} setCurrentSong={setCurrentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} songs={songs} />  {/* pass the props into player.js */}
+        <Player currentSong={currentSong} setCurrentSong={setCurrentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} songs={songs} setSongs={setSongs} />  {/* pass the props into player.js */}
         <SongList songs={songs} displayListSong={displayListSong} />
       </SongContext.Provider>
     </div >
