@@ -23,7 +23,7 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, s
             }
         })
         setSongs(newSong);
-    },[currentSong])
+    }, [currentSong])
 
 
     const audioRef = useRef(null);
@@ -39,15 +39,23 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, s
     }
 
     const timeUpdateHandler = (e) => {
+        const currentTime = e.target.currentTime
+        const duration = e.target.duration
+        //calculate the percentage of song progress:
+        const animationPercentage = (currentTime / duration) * 100;
         setSongInfo({
-            currentTime: e.target.currentTime,
-            duration: e.target.duration
+            currentTime,
+            duration,
+            animationPercentage
         })
+
+        //  console.log(animationTime);
     }
 
     const [songInfo, setSongInfo] = useState({
-        currentTime: null,  // currently playing time of a song
-        duration: null   // the whole duration of a song
+        currentTime: 0,  // currently playing time of a song
+        duration: 0,   // the whole duration of a song
+        animationPercentage: 0   // the percentage of song progress which is used for progress of bar animation
     })
 
     const convertToTime = (num) => {
@@ -61,7 +69,6 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, s
     const dragHandler = (e) => {
         audioRef.current.currentTime = e.target.value;
         setSongInfo({ ...songInfo, currentTime: e.target.value })
-        console.log(e);
     }
 
     const skipSong = (dir) => {
@@ -84,14 +91,29 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, s
             }
         }
     }
+
+    // this variable is used for sneding percentage of animation to css by style
+    const trackAnimation = {
+        transform: `translateX(${songInfo.animationPercentage}%)`
+    }
+
     return (
         <div className="player">
             <div className="time-control">
-                <p>Start Time {convertToTime(parseInt(songInfo.currentTime))}</p>
-                {/* This is an controlled <input> because it depends on a state named songInfo: */}
-                {/* in maximum range we have to put (or) operator with max.duration because when the song has not been loaded it shows 0 and doesn't display error */}
-                <input type="range" onChange={dragHandler} min={0} max={songInfo.duration || 0} value={songInfo.currentTime} />
-                <p>End Time {convertToTime(parseInt(songInfo.duration))}</p>
+                <p>{convertToTime(parseInt(songInfo.currentTime))}</p>
+
+                <div style={{ background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})` }}
+                    className="track">   {/* this div is supposed to make the time bar */}
+                    {/* This is an controlled <input> because it depends on a state named songInfo: */}
+                    {/* in maximum range we have to put (or) operator with max.duration because when the song has not been loaded it shows 0 and doesn't display error */}
+                    <input type="range" onChange={dragHandler} min={0} max={songInfo.duration || 0} value={songInfo.currentTime} />
+
+                    <div style={trackAnimation} className="animate-track"> {/* and this div is supposed to change according to progress of the song time */}
+
+                    </div>
+                </div>
+
+                <p> {convertToTime(parseInt(songInfo.duration))}</p>
             </div>
             <div className="play-control"> {/* control buttons */}
                 <FontAwesomeIcon onClick={() => skipSong("back")} className="skip-back" size='2x' icon={faAngleLeft} />
