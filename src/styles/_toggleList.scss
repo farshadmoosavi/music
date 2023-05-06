@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Lexend:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Lexend:wght@300&display=swap");
 nav {
   min-height: 10vh;
   display: flex;
@@ -18,14 +18,31 @@ nav {
   }
 }
 
-#button-toggle{
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-    margin-right: 5px;
+#button-toggle {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  margin-right: 5px;
 }
 
-#wave-toggle{
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-    color: red
+#wave-toggle {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  color: red;
+}
+
+@media screen and (max-width: 768px) {     // making responsive for mobile devices view such as smart phone
+  nav {
+    button {
+      z-index: 10;
+      position: fixed;
+      top: 2vh;
+      right: 6vw;
+    }
+  }
+  #wave-toggle {
+    z-index: 10;
+    position: fixed;
+    top: 2vh;
+    right: 6vw;
+  }
 }

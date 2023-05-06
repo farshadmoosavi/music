@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+.App{
+    transition: all 1s ease;
+}
+
+.activeList{
+    margin-left: 15%;
+}
+
 // partial scss:
 @import "./player";
 @import "./song";

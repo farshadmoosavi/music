@@ -11,7 +11,7 @@
   display: flex;
   input {
     width: 100%;
-    // padding: 1rem 0; 
+    // padding: 1rem 0;
     -webkit-appearance: none;
     background: transparent;
     cursor: pointer;
@@ -21,15 +21,15 @@
   }
 }
 
-input[type="range"]:focus{
-  outline: none
+input[type="range"]:focus {
+  outline: none;
 }
 
-input[type="range"]::-webkit-slider-thumb{ // thumb slider changes 
+input[type="range"]::-webkit-slider-thumb {
+  // thumb slider changes
   -webkit-appearance: none;
   height: 16px;
   width: 16px;
-  
 }
 
 .play-control {
@@ -43,16 +43,17 @@ input[type="range"]::-webkit-slider-thumb{ // thumb slider changes
   }
 }
 
-.track{   //this div is the parent of animate-track class and we want these two class overlap, so parent: relative and child: absolute
+.track {
+  //this div is the parent of animate-track class and we want these two class overlap, so parent: relative and child: absolute
   background: lightblue;
   width: 100%;
   height: 1rem;
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
-} 
+}
 
-.animate-track{
+.animate-track {
   background: rgb(7, 151, 50);
   width: 100%;
   height: 100%;
@@ -62,4 +63,13 @@ input[type="range"]::-webkit-slider-thumb{ // thumb slider changes
   transform: translateX(100%);
   border-radius: 1rem;
   pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {   // making responsive for mobile devices view such as smart phone
+  .time-control {
+    width: 60%;
+  }
+  .play-control{
+    width: 60%;
+  }
 }

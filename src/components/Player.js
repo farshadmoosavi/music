@@ -36,6 +36,8 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, s
             audioRef.current.play();
             setIsPlaying(!isPlaying);
         }
+
+
     }
 
     const timeUpdateHandler = (e) => {
@@ -43,12 +45,18 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, s
         const duration = e.target.duration
         //calculate the percentage of song progress:
         const animationPercentage = (currentTime / duration) * 100;
+        if (currentTime === duration) {
+            setIsPlaying(false);
+            skipSong("forward");
+            setTimeout(() => {
+                playSong();
+              }, 2000);
+        }
         setSongInfo({
             currentTime,
             duration,
             animationPercentage
         })
-
         //  console.log(animationTime);
     }
 
@@ -90,6 +98,8 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, s
                 setCurrentSong(songs[currentIndex - 1])
             }
         }
+
+
     }
 
     // this variable is used for sneding percentage of animation to css by style
@@ -120,9 +130,8 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, s
                 <FontAwesomeIcon onClick={playSong} className="play" size='2x' icon={isPlaying ? faPause : faPlay} />
                 <FontAwesomeIcon onClick={() => skipSong("forward")} className="skip-forward" size='2x' icon={faAngleRight} />
             </div>
-            {/* onLoadedMetadata helps initaiate song's info before playing */}
+            {/* onLoadedMetadata helps initiate song's info before playing */}
             <audio onLoadedMetadata={timeUpdateHandler} onTimeUpdate={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
-
         </div>
     );
 }

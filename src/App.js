@@ -14,7 +14,7 @@ function App() {
   const [displayListSong, setDisplayListSong] = useState(true);
 
   return (
-    <div className="App">
+    <div className={`App ${!displayListSong ? "activeList" : ""}`}>
       <ToggleList displayListSong={displayListSong} setDisplayListSong={setDisplayListSong} />
       <SongContext.Provider value={{ songs, setCurrentSong, setSongs }}>  {/* Notice: double brace is necessary here for passing setStates */}
         <Song currentSong={currentSong} />   {/* pass the props into song.js */}
