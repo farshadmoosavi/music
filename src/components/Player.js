@@ -47,10 +47,9 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, s
         const animationPercentage = (currentTime / duration) * 100;
         if (currentTime === duration) {
             setIsPlaying(false);
-            skipSong("forward");
             setTimeout(() => {
-                playSong();
-              }, 2000);
+                skipSong("forward");
+              }, 2000)
         }
         setSongInfo({
             currentTime,
@@ -80,6 +79,7 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, s
     }
 
     const skipSong = (dir) => {
+        setIsPlaying(false);
         const currentIndex = songs.findIndex((item) => item.id === currentSong.id);
         if (dir === "forward") {
             if (currentIndex == songs.length - 1) {
@@ -98,8 +98,9 @@ const Player = ({ currentSong, setCurrentSong, isPlaying, setIsPlaying, songs, s
                 setCurrentSong(songs[currentIndex - 1])
             }
         }
-
-
+        setTimeout(() => {
+            playSong();
+          }, 2000)
     }
 
     // this variable is used for sneding percentage of animation to css by style
